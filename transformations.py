@@ -1,3 +1,5 @@
+import sys
+
 def split_into_lines(text):
     return text.splitlines()
 
@@ -16,31 +18,36 @@ def tab_split(list):
     return new_list
 
 def type_delete(list_of_lists):
-    for list in list_of_lists:
+    new_list = list_of_lists.copy()
+    for list in new_list:
         list.pop(1)
-        list.pop(2)
-    return list_of_lists
+        list[2] = sys.argv[2]
+        
+    return new_list
+
+
+
 
 def collector_shorten(list_of_lists):
-    for list in list_of_lists:
+    new_list = list_of_lists.copy()
+    for list in new_list:
         if len(list[0]) > 3:
             list[0] = list[0][0:3]
-    return list_of_lists
+    return new_list
 
 
 def rearrange(list_of_lists):
     new_list = []
     for list in list_of_lists:
-        moved = list [2] + " " + list[1] + "  " + list[0]
+        moved = list[3] + " " + list[1] + " " + list[2] + " " + list[0]
         new_list.append(moved)
         #print(moved)
 
     return(new_list)
 
 def merge(list):
-    res = ''
+    res = ""
     for string in list:
         res += string + "\n"
-
     res = res.strip() 
     return res

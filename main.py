@@ -7,6 +7,16 @@ def main():
         sys.exit(1)
     deck_path = sys.argv[1]
 
+    # Optional third argument to append text
+    #append_text = None
+    if len(sys.argv) >= 3:
+        append_text = sys.argv[2]
+
+    
+
+# Continue with your analysis on the modified book_text
+
+
 
     text = get_deck_text(deck_path)
     lines = split_into_lines(text)
